@@ -9,7 +9,7 @@ MAINTAINER Javier Jerónimo <jjeronimo@packagepeer.com>
 RUN rm /etc/nginx/conf.d/default.conf
 RUN mkdir -p /var/log/nginx/
 
-ADD etc/nginx/conf.d/proxy-site.conf /etc/nginx/conf.d/proxy-site.conf
+ADD etc/nginx/conf.d/site_proxy.conf /etc/nginx/conf.d/site_proxy.conf
 
 ADD pkgp-run.sh /pkgp-run.sh
 RUN chmod u+x /pkgp-run.sh
