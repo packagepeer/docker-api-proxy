@@ -2,7 +2,7 @@
 	ServerName %%%SERVER_NAME%%%
 	ServerAdmin %%%SERVER_ADMIN%%%
 
-	DocumentRoot /dev/null
+	DocumentRoot /var/www/html
 
 	ErrorLog ${APACHE_LOG_DIR}/api-error.log
 	CustomLog ${APACHE_LOG_DIR}/api-access.log combined
