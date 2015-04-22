@@ -2,9 +2,9 @@
 	ServerName %%%SERVER_NAME%%%
 	ServerAdmin %%%SERVER_ADMIN%%%
 
-	DocumentRoot /var/www/html
+	DocumentRoot /srv/packagepeer/api/nowhere
 
-	<Directory /var/www/html/>
+	<Directory /srv/packagepeer/api/nowhere/>
 			Options FollowSymLinks
 			AllowOverride None
 			Require all granted
