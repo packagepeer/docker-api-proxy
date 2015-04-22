@@ -2,10 +2,8 @@
 	ServerName %%%SERVER_NAME%%%
 	ServerAdmin %%%SERVER_ADMIN%%%
 
-	DocumentRoot /var/www/html
-
-	ErrorLog ${APACHE_LOG_DIR}/api-error.log
-	CustomLog ${APACHE_LOG_DIR}/api-access.log combined
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 	ProxyPass         /  http://api:8080/packagepeer/ retry=0 timeout=120 Keepalive=On
 	ProxyPassReverse  /  http://api:8080/packagepeer/
