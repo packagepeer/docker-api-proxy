@@ -6,7 +6,8 @@ MAINTAINER Javier Jerónimo <jjeronimo@packagepeer.com>
 # HowTo run: sudo docker run --link ...:api -e SERVER_NAME=... -e SERVER_ADMIN=... packagepeer/api-proxy
 
 # ################################################################################ Setup
-ADD etc/nginx/sites-enabled/proxy /etc/nginx/sites-enabled/proxy
+RUN rm /etc/nginx/conf.d/default.conf
+ADD etc/nginx/conf.d/proxy-site.conf /etc/nginx/conf.d/proxy-site.conf
 
 ADD pkgp-run.sh /pkgp-run.sh
 RUN chmod u+x /pkgp-run.sh
