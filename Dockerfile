@@ -14,6 +14,7 @@ ADD etc/nginx/conf.d/site_proxy.conf /etc/nginx/conf.d/site_proxy.conf
 ADD pkgp-run.sh /pkgp-run.sh
 RUN chmod u+x /pkgp-run.sh
 
+EXPOSE 80
 
 # ################################################################################ Entry point
 CMD ["/pkgp-run.sh"]
