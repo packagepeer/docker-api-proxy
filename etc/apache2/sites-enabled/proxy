@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+	ServerName %%%SERVER_NAME%%%
+	ServerAdmin %%%SERVER_ADMIN%%%
+
+	DocumentRoot /dev/null
+
+	ErrorLog ${APACHE_LOG_DIR}/api-error.log
+	CustomLog ${APACHE_LOG_DIR}/api-access.log combined
+
+	ProxyPass         /  http://${API_PORT_8080_TCP_ADDR}:8080/packagepeer/ retry=0 timeout=120 Keepalive=On
+	ProxyPassReverse  /  http://${API_PORT_8080_TCP_ADDR}:8080/packagepeer/
+</VirtualHost>
