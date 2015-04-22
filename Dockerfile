@@ -1,15 +1,23 @@
-FROM nginx:1.7
+FROM ubuntu:14.04
 MAINTAINER Javier Jerónimo <jjeronimo@packagepeer.com>
 
 # HowTo build: sudo docker build --tag=packagepeer/api-proxy .
 
-# HowTo run: sudo docker run --link ...:api -e SERVER_NAME=... -e SERVER_ADMIN=... packagepeer/api-proxy
+# HowTo run: sudo docker run --link ...:api packagepeer/api-proxy
 
 # ################################################################################ Setup
-RUN rm /etc/nginx/conf.d/default.conf
+RUN \
+  apt-get update && \
+  apt-get install -y nginx-core  && \
+  rm -rf /var/lib/apt/lists/* && \
+  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+  chown -R www-data:www-data /var/lib/nginx
+
+WORKDIR /etc/nginx
+
 RUN mkdir -p /var/log/nginx/
 
-ADD etc/nginx/conf.d/site_proxy.conf /etc/nginx/conf.d/site_proxy.conf
+ADD etc/nginx/sites-enabled/proxy /etc/nginx/sites-enabled/proxy
 
 ADD pkgp-run.sh /pkgp-run.sh
 RUN chmod u+x /pkgp-run.sh
