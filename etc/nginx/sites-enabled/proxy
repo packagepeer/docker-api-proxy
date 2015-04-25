@@ -5,6 +5,13 @@ server {
     access_log      /var/log/nginx/access.log;
     error_log       /var/log/nginx/error.log;
 
+    location /nginx_status {
+      stub_status on;
+      access_log   off;
+      allow 172.17.42.1;
+      deny all;
+    }
+
     location / {
         rewrite ^/(.*) /packagepeer/$1 break;
         proxy_pass  http://api:8080;
