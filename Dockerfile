@@ -3,7 +3,7 @@ MAINTAINER Javier Jerónimo <jjeronimo@packagepeer.com>
 
 # HowTo build: sudo docker build --tag=packagepeer/api-proxy .
 
-# HowTo run: sudo docker run --link ...:api packagepeer/api-proxy
+# HowTo run: sudo docker run --link ...:api -e WEBAPP_PATH_IN_TOMCAT=/apppath/1/2/3 packagepeer/api-proxy
 
 # ################################################################################ Setup
 RUN \
