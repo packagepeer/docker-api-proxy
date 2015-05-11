@@ -13,7 +13,7 @@ server {
     }
 
     location / {
-        rewrite ^/(.*) /packagepeer/$1 break;
+        rewrite ^/(.*) %%%WEBAPP_PATH_IN_TOMCAT%%%/$1 break;
         proxy_pass  http://api:8080;
 
         ### force timeouts if one of backend is died ##
