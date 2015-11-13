@@ -13,10 +13,10 @@ server {
     }
 
     location / {
-        rewrite ^/(.*) /packagepeer/$1 break;
-        proxy_pass  http://api:8080;
+        rewrite ^/(.*) /$1 break;
+        proxy_pass  http://war-tomcat8:8080;
 
-        ### force timeouts if one of backend is died ##
+        ### force timeouts if one of backend is dead ##
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
 
         ### Set headers ####
