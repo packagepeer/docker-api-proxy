@@ -14,7 +14,7 @@ server {
 
     location / {
         rewrite ^/(.*) /$1 break;
-        proxy_pass  http://war-tomcat8:8080;
+        proxy_pass  %%%PROXY_PASS%%%;
 
         ### force timeouts if one of backend is dead ##
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
